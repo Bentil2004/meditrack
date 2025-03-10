@@ -1,0 +1,87 @@
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { Menu, X } from "lucide-react";
+import logo from "../../assets/newLogo.png";
+
+function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  return (
+    <nav className="fixed top-0 left-0 w-full bg-white shadow-md z-50 p-4 flex items-center justify-between">
+      <Link to="/" className="flex-shrink-0">
+        <img src={logo} alt="MediTrack Logo" className="h-10" />
+      </Link>
+
+      <ul className="hidden md:flex space-x-6 text-gray-700 font-medium">
+        <li>
+          <Link to="/how-it-works" className="hover:text-[#7E48F0]">
+            How it works
+          </Link>
+        </li>
+        <li>
+          <Link to="/why-its-important" className="hover:text-[#7E48F0]">
+            Why it's important
+          </Link>
+        </li>
+        <li>
+          <Link to="/about-us" className="hover:text-[#7E48F0]">
+            About us
+          </Link>
+        </li>
+        <li>
+          <Link to="/contact" className="hover:text-[#7E48F0]">
+            Contact
+          </Link>
+        </li>
+      </ul>
+
+      <div className="hidden md:flex items-center space-x-4">
+        <Link to="/login" className="text-gray-700 hover:text-[#7E48F0]">
+          Login
+        </Link>
+        <Link
+          to="/SignUp"
+          className="bg-[#7E48F0] text-white px-4 py-2 rounded-md hover:bg-[#6a3cc7]"
+        >
+          Sign up
+        </Link>
+      </div>
+
+      <button
+        className="md:hidden text-gray-700 focus:outline-none"
+        onClick={() => setMenuOpen(!menuOpen)}
+      >
+        {menuOpen ? <X size={28} /> : <Menu size={28} />}
+      </button>
+
+      {menuOpen && (
+        <div className="absolute top-16 left-0 w-full bg-white shadow-md md:hidden flex flex-col items-center space-y-4 py-4">
+          <Link to="/how-it-works" className="text-gray-700 hover:text-[#7E48F0]">
+            How it works
+          </Link>
+          <Link to="/why-its-important" className="text-gray-700 hover:text-[#7E48F0]">
+            Why it's important
+          </Link>
+          <Link to="/about-us" className="text-gray-700 hover:text-[#7E48F0]">
+            About us
+          </Link>
+          <Link to="/contact" className="text-gray-700 hover:text-[#7E48F0]">
+            Contact
+          </Link>
+          <hr className="w-3/4 border-gray-300" />
+          <Link to="/login" className="text-gray-700 hover:text-[#7E48F0]">
+            Login
+          </Link>
+          <Link
+            to="/SignUp"
+            className="bg-[#7E48F0] text-white px-4 py-2 rounded-md hover:bg-[#6a3cc7]"
+          >
+            Sign up
+          </Link>
+        </div>
+      )}
+    </nav>
+  );
+}
+
+export default Navbar;
