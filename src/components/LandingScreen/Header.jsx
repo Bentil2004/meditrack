@@ -3,7 +3,7 @@ import logo from "../../assets/LogIn.webp";
 
 function Header() {
   return (
-    <header className="container mx-auto px-6 py-16 flex flex-col-reverse md:flex-row items-center">
+    <header className="container mx-auto px-6 py-16 flex flex-col-reverse md:flex-row items-center mt-16">
         
       <div className="md:w-1/2 text-center md:text-left">
         <h1 className="text-4xl md:text-5xl font-light text-gray-900 leading-tight">
