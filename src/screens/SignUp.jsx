@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { FaEye, FaEyeSlash, FaCheckCircle, FaTimesCircle } from "react-icons/fa";
 import logo2 from "../assets/SignUp.jpg";
 
@@ -32,7 +33,6 @@ function SignUp() {
 
   return (
     <div className="h-screen flex flex-col md:flex-row">
-      {/* Form Section */}
       <div className="w-full md:w-1/2 flex flex-col justify-center px-8 sm:px-20 bg-gray-100">
         <div className="max-w-lg mx-auto">
           <h1 className="text-4xl sm:text-5xl text-gray-900">Create an Account</h1>
@@ -99,30 +99,31 @@ function SignUp() {
               </p>
             </div>
 
+            <Link to="/LogIn">
             <button
               className={`w-full mt-6 py-3 text-white rounded-lg text-lg shadow-lg transition ${
-                isFormValid ? "bg-purple-600 hover:bg-purple-700" : "bg-[#b4a1dc] cursor-not-allowed"
+                isFormValid ? "bg-purple-600 hover:bg-purple-700 cursor-pointer" : "bg-[#9c79e7] cursor-not-allowed "
               }`}
               disabled={!isFormValid}
             >
               Sign Up
             </button>
+            </Link>
 
             <p className="text-sm text-gray-500 text-center mt-4">
               By creating an account, you agree with the{" "}
-              <a href="#" className="text-[#7E48F0]">Terms of Use</a> and{" "}
-              <a href="#" className="text-[#7E48F0]">Privacy Policy</a>
+              <a href="#" className="text-[#7E48F0] hover:underline">Terms of Use</a> and{" "}
+              <a href="#" className="text-[#7E48F0] hover:underline">Privacy Policy</a>
             </p>
 
             <p className="text-sm text-gray-500 text-center mt-2">
               Do you already have an account?{" "}
-              <a href="#" className="text-[#7E48F0] ">Log In</a>
+              <Link to="/LogIn" className="text-[#7E48F0] hover:underline">Log In</Link>
             </p>
           </div>
         </div>
       </div>
 
-      {/* Image Section */}
       <div className="w-full md:w-1/2 hidden sm:block">
         <img 
           src={logo2} 

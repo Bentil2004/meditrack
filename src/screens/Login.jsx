@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import logo from "../assets/newLogo.png";
 
@@ -24,7 +25,7 @@ function Login() {
             <label className="block text-gray-700 text-lg font-medium">Email:</label>
             <input
               type="email"
-              className="w-full p-3 border border-[#7E48F0] rounded-lg focus:ring-2 focus:ring-[#7E48F0] focus:border-[#7E48F0] transition"
+              className="w-full p-3 border-[#7E48F0] rounded-lg focus:ring-2 focus:ring-[#7E48F0] focus:border-[#7E48F0] transition"
               placeholder="Enter your email"
             />
           </div>
@@ -34,7 +35,7 @@ function Login() {
             <div className="relative">
               <input
                 type={showPassword ? "text" : "password"}
-                className="w-full p-3 border border-[#7E48F0] rounded-lg focus:ring-2 focus:ring-[#7E48F0] focus:border-[#7E48F0] transition"
+                className="w-full p-3 border-[#7E48F0] rounded-lg focus:ring-2 focus:ring-[#7E48F0] focus:border-[#7E48F0] transition"
                 placeholder="Enter your password"
               />
               <span
@@ -52,16 +53,18 @@ function Login() {
             </a>
           </div>
 
-          <button
-            type="submit"
-            className="w-full bg-[#7E48F0] text-white text-lg font-semibold py-3 rounded-lg shadow-md hover:bg-[#6D3FCC] transition"
-          >
-            Log In
-          </button>
+          <Link to="/Dashboard">
+              <button
+                type="submit"
+                className="w-full bg-[#7E48F0] text-white text-lg font-semibold py-3 rounded-lg shadow-md hover:bg-[#6D3FCC] transition cursor-pointer"
+              >
+                Log In
+              </button>
+          </Link>
 
           <p className="text-center text-gray-700 text-s mt-6">
             Do not have an account?{" "}
-            <a href="#" className="text-[#7E48F0] font-semibold hover:underline">
+            <a href="/SignUp" className="text-[#7E48F0] hover:underline">
               Sign Up
             </a>{" "}
             with MediTrack Today!
