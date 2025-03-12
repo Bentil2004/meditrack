@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import logo from "../../assets/LogIn.webp";
 
 function Header() {
@@ -14,10 +15,12 @@ function Header() {
         </p>
 
         <div className="mt-6 flex flex-col md:flex-row space-y-3 md:space-y-0 md:space-x-4">
-          <button className="bg-[#7E48F0] text-white px-6 py-3 rounded-md shadow-lg hover:bg-[#6a3cc7] transition duration-300 
-                             focus:ring-4 focus:ring-[#7E48F0]/50 outline-none">
-            Get Started
-          </button>
+          <Link to="/SignUp">
+            <button className="bg-[#7E48F0] text-white px-6 py-3 rounded-md shadow-lg hover:bg-[#6a3cc7] transition duration-300 
+                             focus:ring-4 focus:ring-[#7E48F0]/50 outline-none cursor-pointer">
+              Get Started
+            </button>
+          </Link>
           <button className="border-2 border-[#7E48F0] text-[#7E48F0] px-6 py-3 rounded-md shadow-md 
                              hover:bg-[#7E48F0] hover:text-white transition duration-300">
             Sign up with Google

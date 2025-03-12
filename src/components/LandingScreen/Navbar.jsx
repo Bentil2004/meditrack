@@ -9,7 +9,7 @@ function Navbar() {
   return (
     <nav className="fixed top-0 left-0 w-full bg-white shadow-md z-50 p-4 flex items-center justify-between">
       <a href="/" className="flex-shrink-0">
-        <img src={logo} alt="MediTrack Logo" className="h-10" />
+        <img src={logo} alt="MediTrack Logo" className="h-10 ml-2.5" />
       </a>
 
       <ul className="hidden md:flex space-x-6 text-gray-700 font-medium">
@@ -28,14 +28,14 @@ function Navbar() {
             About us
           </a>
         </li>
-        <li>
+        {/* <li>
           <a href="#contact" className="hover:text-[#7E48F0]">
             Contact
           </a>
-        </li>
+        </li> */}
       </ul>
 
-      <div className="hidden md:flex items-center space-x-4">
+      <div className="hidden md:flex items-center space-x-4 mr-2.5">
         <Link to="/Login" className="text-gray-700 hover:text-[#7E48F0]">
           Login
         </Link>
