@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Sidebar from "../components/Sidebar/Sidebar";
-import { FaUsers, FaSearch, FaFilter, FaTrash } from "react-icons/fa";
+import { FaUsers, FaSearch, FaTrash } from "react-icons/fa";
 import logo from "../assets/pfp.jpeg";
 
 function Staffs() {
@@ -13,6 +13,7 @@ function Staffs() {
     { id: 6, name: "Sarah Mensah", email: "sarahmensah@gmail.com", image: logo },
   ]);
 
+  const [searchTerm, setSearchTerm] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [newStaff, setNewStaff] = useState({ name: "", email: "" });
 
@@ -27,6 +28,10 @@ function Staffs() {
     setNewStaff({ ...newStaff, [name]: value });
   };
 
+  const handleSearch = (e) => {
+    setSearchTerm(e.target.value.toLowerCase());
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (newStaff.name && newStaff.email) {
@@ -36,13 +41,19 @@ function Staffs() {
   };
 
   const handleDelete = (id) => {
-    setStaffMembers(staffMembers.filter((staff) => staff.id !== id));
+    const confirmDelete = window.confirm("Are you sure you want to delete this staff member?");
+    if (confirmDelete) {
+      setStaffMembers(staffMembers.filter((staff) => staff.id !== id));
+    }
   };
+
+  const filteredStaff = staffMembers.filter((staff) =>
+    staff.name.toLowerCase().includes(searchTerm)
+  );
 
   return (
     <div className="flex h-screen bg-gray-100 relative">
       <Sidebar />
-
       <div className="flex-grow p-6 space-y-6 relative">
         <div className="pb-4">
           <h2 className="text-4xl font-medium text-[#979797]">Staffs</h2>
@@ -56,13 +67,7 @@ function Staffs() {
               {staffMembers.length}
             </span>
           </div>
-
-
-
-          <button
-            onClick={openModal}
-            className="bg-[#F66464] text-white px-6 py-3 rounded-lg shadow hover:bg-red-300 cursor-pointer"
-          >
+          <button onClick={openModal} className="bg-[#F66464] text-white px-6 py-3 rounded-lg shadow hover:bg-red-300 cursor-pointer">
             + Add New Staff
           </button>
         </div>
@@ -78,22 +83,17 @@ function Staffs() {
               type="text"
               placeholder="Find Staff"
               className="w-full pl-10 pr-4 py-2 border border-[#979797] rounded-lg outline-none"
+              onChange={handleSearch}
             />
           </div>
-          <button className="flex items-center space-x-2 text-[#979797]">
-            <FaFilter />
-            <span>- Select Date Added -</span>
-          </button>
         </div>
 
 
 
 
 
-
-
         <div className="bg-white rounded-lg shadow border border-[#979797] max-h-[500px] overflow-y-auto">
-          {staffMembers.map((staff) => (
+          {filteredStaff.map((staff) => (
             <div key={staff.id} className="flex items-center justify-between p-4 border-b border-[#979797] last:border-0">
               <div className="flex items-center space-x-4">
                 <img src={staff.image} alt={staff.name} className="w-12 h-12 rounded-full" />
@@ -104,29 +104,12 @@ function Staffs() {
               </div>
               <button
                 onClick={() => handleDelete(staff.id)}
-                className="text-[#F66464] hover:bg-red-100 p-2 rounded"
+                className="text-[#F66464] hover:bg-red-100 p-2 rounded cursor-pointer"
               >
                 <FaTrash />
               </button>
             </div>
           ))}
-        </div>
-
-
-
-
-
-
-
-
-
-        <div className="absolute bottom-10 left-0 w-full px-6 flex items-center justify-between text-gray-600">
-          <p>Showing 1 - {staffMembers.length} results of {staffMembers.length}</p>
-          <div className="flex items-center space-x-4">
-            <button className="border px-3 py-1 rounded">&lt;</button>
-            <span>Page 01</span>
-            <button className="border px-3 py-1 rounded">&gt;</button>
-          </div>
         </div>
       </div>
 
@@ -134,19 +117,13 @@ function Staffs() {
 
 
 
-
-
-
       {showModal && (
         <div className="absolute inset-0 flex items-center justify-center bg-transparent backdrop-blur-sm">
-          <div className="bg-white rounded-lg p-6 w-150 shadow-lg relative " >
-
+          <div className="bg-white rounded-lg p-6 w-150 shadow-lg relative">
             <button onClick={closeModal} className="absolute top-3 right-3 text-gray-500 hover:text-black cursor-pointer">
               ✖
             </button>
-
             <h2 className="text-xl font-bold text-purple-600 mb-4">Add Staff</h2>
-
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label className="block text-gray-700 font-medium">Staff Name:</label>
@@ -159,7 +136,6 @@ function Staffs() {
                   required
                 />
               </div>
-
               <div>
                 <label className="block text-gray-700 font-medium">Email:</label>
                 <input
@@ -171,7 +147,6 @@ function Staffs() {
                   required
                 />
               </div>
-
               <button type="submit" className="bg-[#F66464] text-white px-6 py-2 rounded-lg w-full cursor-pointer">
                 Save Details
               </button>
