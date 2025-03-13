@@ -25,12 +25,12 @@ function Settings() {
     <div className="flex h-screen bg-gray-100">
       <Sidebar />
 
-      <div className="flex-1 flex flex-col p-6 space-y-6">
+      <div className="flex-1 flex flex-col p-6 space-y-4">
         <h2 className="text-3xl text-[#979797] font-bold">Settings</h2>
 
         <NavSettings onSelect={setActiveTab} />
 
-        <div className="p-6 ">
+        <div>
           {renderContent()}
         </div>
       </div>

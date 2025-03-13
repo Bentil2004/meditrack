@@ -14,7 +14,7 @@ function NavSettings({ onSelect }) {
             setActiveTab(tab);
             onSelect(tab);
           }}
-          className={`px-6 py-2 rounded-lg transition-all ${
+          className={`px-6 py-2 rounded-lg transition-all cursor-pointer ${
             activeTab === tab ? "bg-white text-black shadow-md cursor-pointer" : ""
           }`}
         >
