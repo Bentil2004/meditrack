@@ -11,7 +11,7 @@ const Topbar = () => {
           <input
             type="text"
             placeholder="Search for products, inventories, etc"
-            className="w-full p-2 pl-10  rounded-lg bg-[#F2F2F2] focus:outline-none focus:ring-2 focus:ring-purple-400"
+            className="w-full p-2 pl-10  rounded-lg bg-[#F2F2F2] focus:outline-none focus:ring-2 focus:ring-[#7E48F0]"
           />
           <FaSearch className="absolute left-3 top-3 text-gray-500" />
         </div>
