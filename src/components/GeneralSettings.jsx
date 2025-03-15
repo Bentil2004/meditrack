@@ -20,7 +20,7 @@ function GeneralSettings() {
           onChange={(e) => setTheme(e.target.value)}
         >
           <option>Light</option>
-          <option>Dark</option>
+          <option>N/A</option>
         </select>
       </div>
 

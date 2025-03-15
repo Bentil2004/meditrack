@@ -45,7 +45,10 @@ const Sidebar = () => {
             <Link
               to={item.path}
               className={`flex items-center p-3 rounded-lg text-lg transition-all ${
-                location.pathname.startsWith(item.path)
+                (location.pathname.startsWith(item.path) ||
+                  (item.path === "/Inventory" &&
+                    (location.pathname.startsWith("/MedList") ||
+                     location.pathname.startsWith("/MedGroup"))))
                   ? "bg-[#7E48F0] text-white"
                   : "text-gray-700 hover:bg-gray-100"
               }`}
