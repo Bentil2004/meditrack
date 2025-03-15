@@ -19,7 +19,7 @@ function Inventory() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
 
             <div
-              className="bg-white p-6 rounded-lg shadow-md cursor-pointer border-4 border-transparent hover:border-purple-500 transition-all w-150 h-100 flex flex-col justify-between"
+              className="bg-white p-6 rounded-lg shadow-md cursor-pointer border-4 border-transparent hover:border-[#7E48F0] transition-all w-150 h-100 flex flex-col justify-between"
               onClick={() => navigate("/MedList")}
             >
               <img
@@ -34,7 +34,7 @@ function Inventory() {
             </div>
 
             <div
-              className="bg-white p-6 rounded-lg shadow-md cursor-pointer border-4 border-transparent hover:border-purple-500 transition-all w-150 h-100 flex flex-col justify-between"
+              className="bg-white p-6 rounded-lg shadow-md cursor-pointer border-4 border-transparent hover:border-[#7E48F0] transition-all w-150 h-100 flex flex-col justify-between"
               onClick={() => navigate("/MedGroup")}
             >
               <img

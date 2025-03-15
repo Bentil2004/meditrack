@@ -21,7 +21,7 @@ function NotificationSettings() {
             checked={emailNotifications}
             onChange={() => setEmailNotifications(!emailNotifications)}
           />
-          <div className="w-10 h-5 bg-gray-300 rounded-full peer-checked:bg-purple-500 peer-checked:after:translate-x-5 after:content-[''] after:absolute after:top-1/2 after:left-1 after:w-4 after:h-4 after:bg-white after:rounded-full after:transform after:-translate-y-1/2 after:transition-all"></div>
+          <div className="w-10 h-5 bg-gray-300 rounded-full peer-checked:bg-[#7E48F0] peer-checked:after:translate-x-5 after:content-[''] after:absolute after:top-1/2 after:left-1 after:w-4 after:h-4 after:bg-white after:rounded-full after:transform after:-translate-y-1/2 after:transition-all"></div>
         </label>
       </div>
 
@@ -39,7 +39,7 @@ function NotificationSettings() {
             checked={expirationDate}
             onChange={() => setExpirationDate(!expirationDate)}
           />
-          <div className="w-10 h-5 bg-gray-300 rounded-full peer-checked:bg-purple-500 peer-checked:after:translate-x-5 after:content-[''] after:absolute after:top-1/2 after:left-1 after:w-4 after:h-4 after:bg-white after:rounded-full after:transform after:-translate-y-1/2 after:transition-all"></div>
+          <div className="w-10 h-5 bg-gray-300 rounded-full peer-checked:bg-[#7E48F0] peer-checked:after:translate-x-5 after:content-[''] after:absolute after:top-1/2 after:left-1 after:w-4 after:h-4 after:bg-white after:rounded-full after:transform after:-translate-y-1/2 after:transition-all"></div>
         </label>
       </div>
 
@@ -57,7 +57,7 @@ function NotificationSettings() {
             checked={invite}
             onChange={() => setInvite(!invite)}
           />
-          <div className="w-10 h-5 bg-gray-300 rounded-full peer-checked:bg-purple-500 peer-checked:after:translate-x-5 after:content-[''] after:absolute after:top-1/2 after:left-1 after:w-4 after:h-4 after:bg-white after:rounded-full after:transform after:-translate-y-1/2 after:transition-all"></div>
+          <div className="w-10 h-5 bg-gray-300 rounded-full peer-checked:bg-[#7E48F0] peer-checked:after:translate-x-5 after:content-[''] after:absolute after:top-1/2 after:left-1 after:w-4 after:h-4 after:bg-white after:rounded-full after:transform after:-translate-y-1/2 after:transition-all"></div>
         </label>
       </div>
 

@@ -9,8 +9,6 @@ function Staffs() {
     { id: 2, name: "Gino Kofi Freeman", email: "gino69@gmail.com", image: logo },
     { id: 3, name: "Richmond Osei", email: "richmondosei@gmail.com", image: logo },
     { id: 4, name: "Joana Bentil", email: "joanaben@gmail.com", image: logo },
-    { id: 5, name: "Daniel Kofi", email: "danielkofi@gmail.com", image: logo },
-    { id: 6, name: "Sarah Mensah", email: "sarahmensah@gmail.com", image: logo },
   ]);
 
   const [searchTerm, setSearchTerm] = useState("");
@@ -118,8 +116,8 @@ function Staffs() {
 
 
       {showModal && (
-        <div className="absolute inset-0 flex items-center justify-center bg-transparent backdrop-blur-sm">
-          <div className="bg-white rounded-lg p-6 w-150 shadow-lg relative">
+        <div className="absolute inset-0 flex items-center justify-center bg-black/50">
+          <div className="bg-white rounded-lg p-6 w-100 shadow-lg relative">
             <button onClick={closeModal} className="absolute top-3 right-3 text-gray-500 hover:text-black cursor-pointer">
               ✖
             </button>
@@ -132,7 +130,7 @@ function Staffs() {
                   name="name"
                   value={newStaff.name}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-purple-500"
+                  className="w-full px-4 py-2 border border-gray-400 rounded-lg focus:outline-none focus:border-purple-500"
                   required
                 />
               </div>
@@ -143,7 +141,7 @@ function Staffs() {
                   name="email"
                   value={newStaff.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-purple-500"
+                  className="w-full px-4 py-2 border border-gray-400 rounded-lg focus:outline-none focus:border-purple-500"
                   required
                 />
               </div>
