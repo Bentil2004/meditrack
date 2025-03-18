@@ -10,6 +10,8 @@ import Settings from "./screens/Settings";
 import Staffs from "./screens/Staffs";
 import MedList from "./screens/MedList";
 import MedGroup from "./screens/MedGroup";
+import MedDetail from "./screens/MedDetail";
+import MedGroupDetails from "./screens/MedGroupDetails";
 
 
 function App() {
@@ -26,6 +28,9 @@ function App() {
         <Route path="/Staffs" element={<Staffs/>}/>
         <Route path="/MedList" element={<MedList/>}/>
         <Route path="/MedGroup" element={<MedGroup/>}/>
+        <Route path="/MedDetail/:id" element={<MedDetail/>}/> 
+        <Route path="/MedGroupDetails/:groupName" element={<MedGroupDetails/>}/> 
+
       </Routes>
     </Router>
   );

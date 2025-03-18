@@ -48,13 +48,13 @@ const Sidebar = () => {
                 (location.pathname.startsWith(item.path) ||
                   (item.path === "/Inventory" &&
                     (location.pathname.startsWith("/MedList") ||
-                     location.pathname.startsWith("/MedGroup"))))
+                     location.pathname.startsWith("/MedGroup") ||
+                     location.pathname.startsWith("/MedDetail"))))
                   ? "bg-[#7E48F0] text-white"
                   : "text-gray-700 hover:bg-gray-100"
               }`}
             >
               <span className="w-8 flex justify-center">{item.icon}</span>
-
               {!isCollapsed && <span className="flex-1 text-left">{item.name}</span>}
             </Link>
 
