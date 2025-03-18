@@ -1,0 +1,202 @@
+[
+  {
+    "group": "Generic Medicine",
+    "medicines": [
+      {
+        "id": "MEDID232435454",
+        "name": "Amoxicillin Tablet",
+        "stock": 350
+      },
+      {
+        "id": "MEDID232435451",
+        "name": "Aspirin Tablet",
+        "stock": 20
+      },
+      {
+        "id": "MEDID232435460",
+        "name": "Paracetamol Tablet",
+        "stock": 500
+      },
+      {
+        "id": "MEDID232435461",
+        "name": "Ibuprofen Tablet",
+        "stock": 300
+      }
+    ]
+  },
+  {
+    "group": "Respiratory",
+    "medicines": [
+      {
+        "id": "MEDID232435452",
+        "name": "Ascoril LS Syrup",
+        "stock": 85
+      },
+      {
+        "id": "MEDID232435462",
+        "name": "Salbutamol Inhaler",
+        "stock": 150
+      },
+      {
+        "id": "MEDID232435463",
+        "name": "Budesonide Inhaler",
+        "stock": 90
+      }
+    ]
+  },
+  {
+    "group": "Beta-Blocker",
+    "medicines": [
+      {
+        "id": "MEDID232435453",
+        "name": "Atenolol Tablet",
+        "stock": 150
+      },
+      {
+        "id": "MEDID232435464",
+        "name": "Metoprolol Tablet",
+        "stock": 120
+      },
+      {
+        "id": "MEDID232435465",
+        "name": "Propranolol Tablet",
+        "stock": 100
+      }
+    ]
+  },
+  {
+    "group": "Antibiotic",
+    "medicines": [
+      {
+        "id": "MEDID232435455",
+        "name": "Azithromycin Tablet",
+        "stock": 400
+      },
+      {
+        "id": "MEDID232435466",
+        "name": "Ciprofloxacin Tablet",
+        "stock": 200
+      },
+      {
+        "id": "MEDID232435467",
+        "name": "Doxycycline Capsule",
+        "stock": 180
+      },
+      {
+        "id": "MEDID232435468",
+        "name": "Amoxicillin-Clavulanate Tablet",
+        "stock": 250
+      }
+    ]
+  },
+  {
+    "group": "Vitamin Supplement",
+    "medicines": [
+      {
+        "id": "MEDID232435456",
+        "name": "Benfotiamine Tablet",
+        "stock": 250
+      },
+      {
+        "id": "MEDID232435469",
+        "name": "Vitamin C Tablet",
+        "stock": 500
+      },
+      {
+        "id": "MEDID232435470",
+        "name": "Vitamin D3 Capsule",
+        "stock": 300
+      }
+    ]
+  },
+  {
+    "group": "Anxiolytic",
+    "medicines": [
+      {
+        "id": "MEDID232435457",
+        "name": "Benzodiazepines Tablet",
+        "stock": 500
+      },
+      {
+        "id": "MEDID232435471",
+        "name": "Clonazepam Tablet",
+        "stock": 200
+      },
+      {
+        "id": "MEDID232435472",
+        "name": "Diazepam Tablet",
+        "stock": 150
+      }
+    ]
+  },
+  {
+    "group": "Antihistamine",
+    "medicines": [
+      {
+        "id": "MEDID232435458",
+        "name": "Cetirizine Tablet",
+        "stock": 100
+      },
+      {
+        "id": "MEDID232435473",
+        "name": "Loratadine Tablet",
+        "stock": 80
+      },
+      {
+        "id": "MEDID232435474",
+        "name": "Fexofenadine Tablet",
+        "stock": 90
+      }
+    ]
+  },
+  {
+    "group": "Antipsychotic",
+    "medicines": [
+      {
+        "id": "MEDID232435459",
+        "name": "Chlorpromazine Tablet",
+        "stock": 50
+      },
+      {
+        "id": "MEDID232435475",
+        "name": "Risperidone Tablet",
+        "stock": 70
+      },
+      {
+        "id": "MEDID232435476",
+        "name": "Olanzapine Tablet",
+        "stock": 60
+      }
+    ]
+  },
+  {
+    "group": "Pain Reliever",
+    "medicines": [
+      {
+        "id": "MEDID232435477",
+        "name": "Naproxen Tablet",
+        "stock": 110
+      },
+      {
+        "id": "MEDID232435478",
+        "name": "Diclofenac Tablet",
+        "stock": 130
+      }
+    ]
+  },
+  {
+    "group": "Antidepressant",
+    "medicines": [
+      {
+        "id": "MEDID232435479",
+        "name": "Sertraline Tablet",
+        "stock": 140
+      },
+      {
+        "id": "MEDID232435480",
+        "name": "Fluoxetine Tablet",
+        "stock": 160
+      }
+    ]
+  }
+]

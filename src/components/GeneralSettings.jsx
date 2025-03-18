@@ -61,9 +61,9 @@ function GeneralSettings() {
       </div>
 
       <div className="flex justify-end gap-3 mt-6">
-        <button className="px-4 py-2 border border-gray-400 rounded-md text-gray-700 bg-white hover:bg-gray-100 cursor-pointer">
+        {/* <button className="px-4 py-2 border border-gray-400 rounded-md text-gray-700 bg-white hover:bg-gray-100 cursor-pointer">
           Cancel
-        </button>
+        </button> */}
         <button className="px-4 py-2 bg-[#7E48F0] text-white rounded-md hover:bg-purple-600 cursor-pointer">
           Save Changes
         </button>

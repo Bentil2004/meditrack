@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import Sidebar from "../components/Sidebar/Sidebar";
-import { FaUsers, FaSearch, FaTrash } from "react-icons/fa";
+import { FaUsers, FaSearch, FaTrash ,FaBoxOpen } from "react-icons/fa";
 import logo from "../assets/pfp.jpeg";
 
 function Staffs() {
   const [staffMembers, setStaffMembers] = useState([
-    { id: 1, name: "Fiifi Ampoma Bentil", email: "fiifiampoma@gmail.com", image: logo },
-    { id: 2, name: "Gino Kofi Freeman", email: "gino69@gmail.com", image: logo },
-    { id: 3, name: "Richmond Osei", email: "richmondosei@gmail.com", image: logo },
-    { id: 4, name: "Joana Bentil", email: "joanaben@gmail.com", image: logo },
+    // { id: 1, name: "Fiifi Ampoma Bentil", email: "fiifiampoma@gmail.com", image: logo },
+    // { id: 2, name: "Gino Kofi Freeman", email: "gino69@gmail.com", image: logo },
+    // { id: 3, name: "Richmond Osei", email: "richmondosei@gmail.com", image: logo },
+    // { id: 4, name: "Joana Bentil", email: "joanaben@gmail.com", image: logo },
   ]);
 
   const [searchTerm, setSearchTerm] = useState("");
@@ -91,7 +91,8 @@ function Staffs() {
 
 
         <div className="bg-white rounded-lg shadow border border-[#979797] max-h-[500px] overflow-y-auto">
-          {filteredStaff.map((staff) => (
+        {filteredStaff.length > 0 ? (
+          filteredStaff.map((staff) => (
             <div key={staff.id} className="flex items-center justify-between p-4 border-b border-[#979797] last:border-0">
               <div className="flex items-center space-x-4">
                 <img src={staff.image} alt={staff.name} className="w-12 h-12 rounded-full" />
@@ -107,7 +108,13 @@ function Staffs() {
                 <FaTrash />
               </button>
             </div>
-          ))}
+          ))
+          ) : (
+            <div className="p-6 flex flex-col items-center text-gray-500">
+              <FaUsers className="text-5xl mb-2" />
+              <p>No Staff Added.</p>
+            </div>
+          )}
         </div>
       </div>
 

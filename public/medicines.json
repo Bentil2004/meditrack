@@ -1,0 +1,207 @@
+[
+    {
+      "id": "MEDID232435454",
+      "name": "Amoxicillin Tablet",
+      "group": "Generic Medicine",
+      "stock": 350,
+      "usage": "Take this medication by mouth with or without food as directed by your doctor, usually once daily.",
+      "sideEffects": {
+        "common": [
+          "Nausea",
+          "Vomiting",
+          "Diarrhea"
+        ],
+        "rare": [
+          "Skin rashes",
+          "Yeast infections"
+        ],
+        "serious": [
+          "Severe allergic reactions (swelling of face, throat, difficulty breathing)",
+          "Severe diarrhea (sign of colitis)"
+        ],
+        "notes": "If any serious reaction occurs, discontinue use and seek medical attention immediately."
+      }
+    },
+    {
+      "id": "MEDID232435451",
+      "name": "Aspirin Tablet",
+      "group": "Generic Medicine",
+      "stock": 20,
+      "usage": "Take one tablet with a full glass of water. Do not crush or chew the tablet.",
+      "sideEffects": {
+        "common": [
+          "Stomach upset",
+          "Nausea",
+          "Heartburn"
+        ],
+        "rare": [
+          "Tinnitus (ringing in ears)",
+          "Bruising easily"
+        ],
+        "serious": [
+          "Gastrointestinal bleeding",
+          "Severe allergic reaction (hives, swelling, difficulty breathing)"
+        ],
+        "notes": "Avoid alcohol while taking this medicine to reduce the risk of stomach bleeding."
+      }
+    },
+    {
+      "id": "MEDID232435452",
+      "name": "Ascoril LS Syrup",
+      "group": "Respiratory",
+      "stock": 85,
+      "usage": "Take the prescribed dosage with a measuring cup, preferably after meals.",
+      "sideEffects": {
+        "common": [
+          "Dry mouth",
+          "Dizziness",
+          "Nausea"
+        ],
+        "rare": [
+          "Increased heart rate",
+          "Mild tremors"
+        ],
+        "serious": [
+          "Severe allergic reactions",
+          "Chest pain or irregular heartbeat"
+        ],
+        "notes": "Consult a doctor if symptoms persist for more than a week."
+      }
+    },
+    {
+      "id": "MEDID232435453",
+      "name": "Atenolol Tablet",
+      "group": "Beta-Blocker",
+      "stock": 150,
+      "usage": "Take this medication by mouth, usually once or twice daily with a full glass of water.",
+      "sideEffects": {
+        "common": [
+          "Dizziness",
+          "Tiredness",
+          "Nausea"
+        ],
+        "rare": [
+          "Cold hands and feet",
+          "Shortness of breath"
+        ],
+        "serious": [
+          "Slow or irregular heartbeat",
+          "Sudden severe dizziness or fainting"
+        ],
+        "notes": "Do not stop taking this medicine suddenly without consulting your doctor."
+      }
+    },
+    {
+      "id": "MEDID232435455",
+      "name": "Azithromycin Tablet",
+      "group": "Antibiotic",
+      "stock": 400,
+      "usage": "Take this medicine as directed by your doctor, preferably one hour before or two hours after meals.",
+      "sideEffects": {
+        "common": [
+          "Diarrhea",
+          "Stomach pain",
+          "Nausea"
+        ],
+        "rare": [
+          "Hearing problems",
+          "Mild skin rash"
+        ],
+        "serious": [
+          "Liver issues (yellowing of skin, dark urine)",
+          "Irregular heartbeat"
+        ],
+        "notes": "Avoid taking antacids within 2 hours of this medication."
+      }
+    },
+    {
+      "id": "MEDID232435456",
+      "name": "Benfotiamine Tablet",
+      "group": "Vitamin Supplement",
+      "stock": 250,
+      "usage": "Take one tablet daily with food, or as directed by your healthcare provider.",
+      "sideEffects": {
+        "common": [
+          "Mild stomach upset",
+          "Skin rash"
+        ],
+        "rare": [
+          "Dizziness",
+          "Headache"
+        ],
+        "serious": [
+          "Severe allergic reaction (difficulty breathing, swelling of face or throat)"
+        ],
+        "notes": "Consult a doctor if symptoms of allergic reactions appear."
+      }
+    },
+    {
+      "id": "MEDID232435457",
+      "name": "Benzodiazepines Tablet",
+      "group": "Anxiolytic",
+      "stock": 500,
+      "usage": "Take exactly as prescribed by your doctor. Do not increase the dose without consultation.",
+      "sideEffects": {
+        "common": [
+          "Drowsiness",
+          "Confusion",
+          "Dizziness"
+        ],
+        "rare": [
+          "Memory problems",
+          "Changes in mood"
+        ],
+        "serious": [
+          "Severe dependency or withdrawal symptoms",
+          "Respiratory depression"
+        ],
+        "notes": "Long-term use can lead to dependence; use only as prescribed."
+      }
+    },
+    {
+      "id": "MEDID232435458",
+      "name": "Cetirizine Tablet",
+      "group": "Antihistamine",
+      "stock": 100,
+      "usage": "Take once daily with or without food. Do not exceed the recommended dose.",
+      "sideEffects": {
+        "common": [
+          "Drowsiness",
+          "Dry mouth",
+          "Fatigue"
+        ],
+        "rare": [
+          "Difficulty urinating",
+          "Blurred vision"
+        ],
+        "serious": [
+          "Severe allergic reaction (hives, swelling, difficulty breathing)"
+        ],
+        "notes": "Avoid alcohol while taking this medication, as it may enhance drowsiness."
+      }
+    },
+    {
+      "id": "MEDID232435459",
+      "name": "Chlorpromazine Tablet",
+      "group": "Antipsychotic",
+      "stock": 50,
+      "usage": "Take this medicine exactly as prescribed by your doctor, with a full glass of water.",
+      "sideEffects": {
+        "common": [
+          "Drowsiness",
+          "Dizziness",
+          "Dry mouth"
+        ],
+        "rare": [
+          "Weight gain",
+          "Sensitivity to sunlight"
+        ],
+        "serious": [
+          "Uncontrolled muscle movements",
+          "Severe mood changes"
+        ],
+        "notes": "May cause drowsiness; avoid driving or operating machinery until you know how it affects you."
+      }
+    }
+  ]
+  

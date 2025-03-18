@@ -70,7 +70,7 @@ function AccountSettings() {
 
 
         <div className="flex justify-end mt-6 space-x-3">
-          <button className="border border-gray-400 bg-white px-4 py-2 rounded-md cursor-pointer">Cancel</button>
+          {/* <button className="border border-gray-400 bg-white px-4 py-2 rounded-md cursor-pointer">Cancel</button> */}
           <button className="bg-[#7E48F0] text-white px-4 py-2 rounded-md cursor-pointer">Save Changes</button>
         </div>
 
