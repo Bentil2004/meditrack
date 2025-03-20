@@ -12,19 +12,19 @@ function Navbar() {
         <img src={logo} alt="MediTrack Logo" className="h-10 ml-2.5" />
       </a>
 
-      <ul className="hidden md:flex space-x-6 text-gray-700 font-medium">
+      <ul className="hidden md:flex space-x-6 text-gray-700 font-medium ">
         <li>
-          <a href="#how-it-works" className="hover:text-[#7E48F0]">
+          <a href="#how-it-works" className="hover:text-[#7E48F0] hover:underline">
             How it works
           </a>
         </li>
         <li>
-          <a href="#why-its-important" className="hover:text-[#7E48F0]">
+          <a href="#why-its-important" className="hover:text-[#7E48F0] hover:underline">
             Why it's important
           </a>
         </li>
         <li>
-          <a href="#about-us" className="hover:text-[#7E48F0]">
+          <a href="#about-us" className="hover:text-[#7E48F0] hover:underline">
             About us
           </a>
         </li>

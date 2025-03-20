@@ -22,19 +22,18 @@ function Footer() {
         <div>
           <h4 className="font-bold text-lg">Home</h4>
           <ul className="mt-2 space-y-2 text-sm">
-            <li><a href="#">What is it</a></li>
-            <li><a href="#">How it works</a></li>
-            <li><a href="#">Why it’s important</a></li>
-            <li><a href="#">Pricing</a></li>
+            {/* <li><a href="#">What is it</a></li> */}
+            <li><a href="#how-it-works">How it works</a></li>
+            <li><a href="#why-its-important">Why it’s important</a></li>
           </ul>
         </div>
 
         <div>
           <h4 className="font-bold text-lg">Company</h4>
           <ul className="mt-2 space-y-2 text-sm">
-            <li><a href="#">About</a></li>
+            <li><a href="#about-us">About</a></li>
             <li><a href="#">Blog</a></li>
-            <li><a href="#">Careers</a></li>
+            {/* <li><a href="#">Careers</a></li> */}
           </ul>
         </div>
 

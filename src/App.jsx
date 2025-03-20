@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import LandingScreen from "./screens/LandingScreen";
-import SignUp from "./screens/SignUp";
-import Login from "./screens/Login";
+import SignUp from "./screens/auth/SignUp";
+import Login from "./screens/auth/Login";
 import Dashboard from "./screens/Dashboard";
 import Inventory from "./screens/Inventory";
 import Report from "./screens/Report";

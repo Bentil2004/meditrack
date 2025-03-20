@@ -1,7 +1,10 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { FaEye, FaEyeSlash, FaCheckCircle, FaTimesCircle } from "react-icons/fa";
-import logo2 from "../assets/SignUp.jpg";
+import { Link, useNavigate } from "react-router-dom";
+import { FaEye, FaEyeSlash, FaCheckCircle, FaTimesCircle, FaTimes } from "react-icons/fa";
+import { auth, firestore } from "../../firebase/firebaseConfig";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore";
+import logo2 from "../../assets/SignUp.jpg";
 
 function SignUp() {
   const [showPassword, setShowPassword] = useState(false);
@@ -9,6 +12,9 @@ function SignUp() {
   const [email, setEmail] = useState("");
   const [adminName, setAdminName] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const [validLength, setValidLength] = useState(false);
   const [validNumber, setValidNumber] = useState(false);
@@ -17,7 +23,6 @@ function SignUp() {
   const handlePasswordChange = (e) => {
     const value = e.target.value;
     setPassword(value);
-
     setValidLength(value.length >= 8);
     setValidNumber(/\d/.test(value));
     setValidSymbol(/[!@#$%^&*(),.?":{}|<>]/.test(value));
@@ -31,6 +36,33 @@ function SignUp() {
     validNumber &&
     validSymbol;
 
+  const handleSignUp = async (e) => {
+    e.preventDefault();
+    setError(null);
+    setLoading(true);
+
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      console.log("User Created:", userCredential.user);
+
+      const userRef = doc(firestore, "users", userCredential.user.uid);
+      await setDoc(userRef, {
+        institutionName,
+        email,
+        adminName,
+        createdAt: new Date(),
+      });
+
+      console.log("User details saved to Firestore");
+      navigate("/LogIn");
+    } catch (error) {
+      setError(error.message);
+      console.error("Signup Error:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="h-screen flex flex-col md:flex-row">
       <div className="w-full md:w-1/2 flex flex-col justify-center px-6 sm:px-12 md:px-20 bg-gray-100">
@@ -40,7 +72,16 @@ function SignUp() {
             Join MediTrack Inventory System and revolutionize the way you manage your hospital or clinic inventory.
           </p>
 
-          <div className="mt-6">
+          {error && (
+            <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-md shadow-md mt-4 flex justify-between items-center">
+              <span className="text-sm">{error}</span>
+              <button onClick={() => setError(null)} className="text-red-500 hover:text-red-700">
+                <FaTimes />
+              </button>
+            </div>
+          )}
+
+          <form onSubmit={handleSignUp} className="mt-6">
             <label className="block text-gray-700 font-medium">Medical Institution Name:</label>
             <input
               type="text"
@@ -97,40 +138,40 @@ function SignUp() {
               </p>
             </div>
 
-            <Link to="/LogIn">
-              <button
-                className={`w-full mt-6 py-3 text-white rounded-lg text-lg shadow-lg transition-all duration-200 ${
-                  isFormValid ? "bg-purple-600 hover:bg-purple-700 cursor-pointer" : "bg-[#9c79e7] cursor-not-allowed "
-                }`}
-                disabled={!isFormValid}
-              >
-                Sign Up
-              </button>
-            </Link>
+            <button
+              type="submit"
+              className={`w-full mt-6 py-3 text-white rounded-lg text-lg shadow-lg transition-all duration-200 flex justify-center ${
+                isFormValid ? "bg-purple-600 hover:bg-purple-700 cursor-pointer" : "bg-[#9c79e7] cursor-not-allowed"
+              }`}
+              disabled={!isFormValid || loading}
+            >
+              {loading ? (
+                <div className="w-6 h-6 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
+              ) : (
+                "Sign Up"
+              )}
+            </button>
+          </form>
 
-            <p className="text-sm text-gray-500 text-center mt-4">
-              By creating an account, you agree to the{" "}
-              <a href="#" className="text-[#7E48F0] hover:underline">Terms of Use</a> and{" "}
-              <a href="#" className="text-[#7E48F0] hover:underline">Privacy Policy</a>
-            </p>
+          <p className="text-sm text-gray-500 text-center mt-4">
+            By creating an account, you agree to the{" "}
+            <a href="#" className="text-[#7E48F0] hover:underline">Terms of Use</a> and{" "}
+            <a href="#" className="text-[#7E48F0] hover:underline">Privacy Policy</a>
+          </p>
 
-            <p className="text-sm text-gray-500 text-center mt-2">
-              Already have an account?{" "}
-              <Link to="/LogIn" className="text-[#7E48F0] hover:underline">Log In</Link>
-            </p>
-          </div>
+          <p className="text-sm text-gray-500 text-center mt-2">
+            Already have an account?{" "}
+            <Link to="/LogIn" className="text-[#7E48F0] hover:underline">Log In</Link>
+          </p>
         </div>
       </div>
 
       <div className="w-full md:w-1/2 hidden md:flex items-center justify-center">
-        <img 
-          src={logo2} 
-          alt="Pharmacist using tablet" 
-          className="w-full h-full object-cover max-h-screen"
-        />
+        <img src={logo2} alt="Pharmacist using tablet" className="w-full h-full object-cover max-h-screen" />
       </div>
     </div>
   );
 }
 
 export default SignUp;
+
