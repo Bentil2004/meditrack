@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Sidebar from "../components/Sidebar/Sidebar";
 import Topbar from "../components/TopBar/Topbar";
 import GraphChart from "../components/GraphChart";
 import { ArrowRight } from "lucide-react";
 
 const Dashboard = () => {
+  const [institutionName, setInstitutionName] = useState("");
+
+  useEffect(() => {
+    const storedInstitution = localStorage.getItem("institutionName");
+    if (storedInstitution) {
+      setInstitutionName(storedInstitution);
+    } else {
+      setInstitutionName("Medical Institution");
+    }
+  }, []);
+
   return (
     <div className="flex h-screen bg-gray-100">
       <Sidebar />
@@ -13,7 +24,7 @@ const Dashboard = () => {
         <Topbar />
 
         <div className="p-6 space-y-6">
-          <h2 className="text-2xl font-bold">Fiifi’s Pharmacy Dashboard</h2>
+          <h2 className="text-2xl font-bold">{institutionName} Dashboard</h2>
           <p className="text-gray-600">A quick data overview of the inventory.</p>
 
           <GraphChart />

@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import Sidebar from "../components/Sidebar/Sidebar";
-import { FaUsers, FaSearch, FaTrash ,FaBoxOpen } from "react-icons/fa";
+import { FaUsers, FaSearch, FaTrash } from "react-icons/fa";
 import logo from "../assets/pfp.jpeg";
 
 function Staffs() {
   const [staffMembers, setStaffMembers] = useState([
-    // { id: 1, name: "Fiifi Ampoma Bentil", email: "fiifiampoma@gmail.com", image: logo },
-    // { id: 2, name: "Gino Kofi Freeman", email: "gino69@gmail.com", image: logo },
-    // { id: 3, name: "Richmond Osei", email: "richmondosei@gmail.com", image: logo },
-    // { id: 4, name: "Joana Bentil", email: "joanaben@gmail.com", image: logo },
+    { id: 1, name: "Fiifi Ampoma Bentil", email: "fiifiampoma@gmail.com", image: logo },
+    { id: 2, name: "Gino Kofi Freeman", email: "gino69@gmail.com", image: logo },
+    { id: 3, name: "Richmond Osei", email: "richmondosei@gmail.com", image: logo },
+    { id: 4, name: "Joana Bentil", email: "joanaben@gmail.com", image: logo },
   ]);
 
   const [searchTerm, setSearchTerm] = useState("");
+  const [showDeleteModal, setShowDeleteModal] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [newStaff, setNewStaff] = useState({ name: "", email: "" });
 
@@ -39,10 +40,12 @@ function Staffs() {
   };
 
   const handleDelete = (id) => {
-    const confirmDelete = window.confirm("Are you sure you want to delete this staff member?");
-    if (confirmDelete) {
-      setStaffMembers(staffMembers.filter((staff) => staff.id !== id));
-    }
+    setShowDeleteModal(id); 
+  };
+
+  const confirmDelete = () => {
+    setStaffMembers(staffMembers.filter((staff) => staff.id !== showDeleteModal));
+    setShowDeleteModal(null); 
   };
 
   const filteredStaff = staffMembers.filter((staff) =>
@@ -70,10 +73,6 @@ function Staffs() {
           </button>
         </div>
 
-
-
-
-
         <div className="flex items-center justify-between pb-4">
           <div className="relative w-1/3">
             <FaSearch className="absolute left-3 top-3 text-[#979797]" />
@@ -86,29 +85,25 @@ function Staffs() {
           </div>
         </div>
 
-
-
-
-
         <div className="bg-white rounded-lg shadow border border-[#979797] max-h-[500px] overflow-y-auto">
-        {filteredStaff.length > 0 ? (
-          filteredStaff.map((staff) => (
-            <div key={staff.id} className="flex items-center justify-between p-4 border-b border-[#979797] last:border-0">
-              <div className="flex items-center space-x-4">
-                <img src={staff.image} alt={staff.name} className="w-12 h-12 rounded-full" />
-                <div>
-                  <p className="font-light">{staff.name}</p>
-                  <p className="text-sm text-[#7E48F0]">{staff.email}</p>
+          {filteredStaff.length > 0 ? (
+            filteredStaff.map((staff) => (
+              <div key={staff.id} className="flex items-center justify-between p-4 border-b border-[#979797] last:border-0">
+                <div className="flex items-center space-x-4">
+                  <img src={staff.image} alt={staff.name} className="w-12 h-12 rounded-full" />
+                  <div>
+                    <p className="font-light">{staff.name}</p>
+                    <p className="text-sm text-[#7E48F0]">{staff.email}</p>
+                  </div>
                 </div>
+                <button
+                  onClick={() => handleDelete(staff.id)}
+                  className="text-[#F66464] hover:bg-red-100 p-2 rounded cursor-pointer"
+                >
+                  <FaTrash />
+                </button>
               </div>
-              <button
-                onClick={() => handleDelete(staff.id)}
-                className="text-[#F66464] hover:bg-red-100 p-2 rounded cursor-pointer"
-              >
-                <FaTrash />
-              </button>
-            </div>
-          ))
+            ))
           ) : (
             <div className="p-6 flex flex-col items-center text-gray-500">
               <FaUsers className="text-5xl mb-2" />
@@ -117,10 +112,6 @@ function Staffs() {
           )}
         </div>
       </div>
-
-
-
-
 
       {showModal && (
         <div className="absolute inset-0 flex items-center justify-center bg-black/50">
@@ -156,6 +147,19 @@ function Staffs() {
                 Save Details
               </button>
             </form>
+          </div>
+        </div>
+      )}
+
+      {showDeleteModal && (
+        <div className="absolute inset-0 flex items-center justify-center bg-black/50">
+          <div className="bg-white rounded-lg p-6 w-96 shadow-lg">
+            <h2 className="text-xl font-bold mb-4">Confirm Delete</h2>
+            <p>Are you sure you want to delete this staff member?</p>
+            <div className="flex justify-end space-x-4 mt-4">
+              <button onClick={() => setShowDeleteModal(null)} className="bg-gray-300 px-4 py-2 rounded cursor-pointer">Cancel</button>
+              <button onClick={confirmDelete} className="bg-[#F66464] text-white px-4 py-2 rounded hover:bg-[#dd7a7a] cursor-pointer">Delete</button>
+            </div>
           </div>
         </div>
       )}

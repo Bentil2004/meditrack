@@ -22,7 +22,7 @@ function Header() {
             </button>
           </Link>
           <button className="border-2 border-[#7E48F0] text-[#7E48F0] px-6 py-3 rounded-md shadow-md 
-                             hover:bg-[#7E48F0] hover:text-white transition duration-300">
+                             hover:bg-[#7E48F0] hover:text-white transition duration-300 cursor-pointer">
             Sign up with Google
           </button>
         </div>
