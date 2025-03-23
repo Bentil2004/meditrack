@@ -15,45 +15,46 @@ function Inventory() {
       <div className="flex-1 flex flex-col">
         <Topbar />
 
-        <div className="flex items-center justify-center h-full">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-
+        <div className="flex items-center justify-center h-full p-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-4xl">
+            
             <div
-              className="bg-white p-6 rounded-lg shadow-md cursor-pointer border-4 border-transparent hover:border-[#7E48F0] transition-all w-150 h-100 flex flex-col justify-between"
+              className="bg-white p-4 sm:p-6 rounded-lg shadow-md cursor-pointer border-4 border-transparent hover:border-[#7E48F0] transition-all flex flex-col justify-between"
               onClick={() => navigate("/MedList")}
             >
               <img
                 src={logo}
                 alt="List of Medicines"
-                className="rounded-lg w-full h-72 object-cover"
+                className="rounded-lg w-full h-56 sm:h-72 object-cover"
               />
-              <div className="flex justify-between items-center">
+              <div className="flex justify-between items-center mt-4">
                 <p className="text-lg font-semibold">List Of Medicines</p>
                 <span className="text-2xl">→</span>
               </div>
             </div>
 
             <div
-              className="bg-white p-6 rounded-lg shadow-md cursor-pointer border-4 border-transparent hover:border-[#7E48F0] transition-all w-150 h-100 flex flex-col justify-between"
+              className="bg-white p-4 sm:p-6 rounded-lg shadow-md cursor-pointer border-4 border-transparent hover:border-[#7E48F0] transition-all flex flex-col justify-between"
               onClick={() => navigate("/MedGroup")}
             >
               <img
                 src={logo1}
                 alt="Medicine Group"
-                className="rounded-lg w-full h-72 object-cover"
+                className="rounded-lg w-full h-56 sm:h-72 object-cover"
               />
-              <div className="flex justify-between items-center">
+              <div className="flex justify-between items-center mt-4">
                 <p className="text-lg font-semibold">Medicine Group</p>
                 <span className="text-2xl">→</span>
               </div>
             </div>
-            
+
           </div>
         </div>
-        
+
       </div>
     </div>
   );
 }
+
 
 export default Inventory;

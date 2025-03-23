@@ -10,8 +10,8 @@ function AccountSettings() {
       <div className="bg-white shadow-md rounded-lg p-4 border border-gray-400">
         <h2 className="text-2xl font-medium text-[#8D9095] mb-4">Account Settings</h2>
         
-        <div className="grid grid-cols-2 gap-120 items-center">
-          <div className="grid gap-6 w-200">
+        <div className="">
+          <div className="">
             <div>
               <label className="block text-gray-700 mb-1">Medical Institution Name:</label>
               <input type="text" className="w-full border p-2 rounded-md border-gray-400" />
@@ -45,14 +45,14 @@ function AccountSettings() {
 
 
 
-            <div className="bg-gray-100 p-4 rounded-md w-80 h-50">
+            {/* <div className="bg-gray-100 p-4 rounded-md w-80 h-50">
               <h3 className="text-gray-700 font-semibold">Password Requirements</h3>
               <ol className="text-gray-600 text-sm list-disc pl-5 ">
                 <li>At least 6 characters</li>
                 <li>At least one uppercase letter</li>
                 <li>At least one number</li>
               </ol>
-            </div>
+            </div> */}
         </div>
 
 

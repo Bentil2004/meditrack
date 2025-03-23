@@ -10,23 +10,15 @@ const Topbar = () => {
     const storedName = localStorage.getItem("adminName");
     const storedRole = localStorage.getItem("adminRole");
 
-    if (storedName) {
-      setAdminName(storedName);
-    } else {
-      setAdminName("Admin");
-    }
-
-    if (storedRole) {
-      setAdminRole(storedRole);
-    } else {
-      setAdminRole("Admin"); 
-    }
+    setAdminName(storedName || "Admin");
+    setAdminRole(storedRole || "Admin");
   }, []);
 
   return (
-    <div className="flex justify-between items-center bg-white shadow-md p-4">
-      <div className="flex-1 flex justify-center">
-        <div className="relative w-full max-w-md">
+    <div className="bg-white shadow-md p-4 flex flex-col sm:flex-row items-center sm:justify-between space-y-3 sm:space-y-0">
+
+      <div className="w-full sm:w-auto flex justify-center sm:flex-1">
+        <div className="relative w-full sm:max-w-md">
           <input
             type="text"
             placeholder="Search for products, inventories, etc"
@@ -36,20 +28,18 @@ const Topbar = () => {
         </div>
       </div>
 
-      <div className="flex items-center space-x-6">
+      <div className="flex items-center space-x-4 sm:space-x-6">
+        <FaBell className="text-gray-600 text-xl cursor-pointer hover:text-gray-800" />
+        
         <div className="flex items-center space-x-3">
-          <img
-            src={profilePic}
-            alt="User"
-            className="w-10 h-10 rounded-full"
-          />
-          <div>
+          <img src={profilePic} alt="User" className="w-10 h-10 rounded-full" />
+          <div className="hidden sm:block">
             <h4 className="text-gray-700">{adminName}</h4>
             <p className="text-sm text-gray-500">{adminRole}</p>
           </div>
-          <FaBell className="text-gray-600 text-xl cursor-pointer hover:text-gray-800 ml-10 mr-5" />
         </div>
       </div>
+      
     </div>
   );
 };

@@ -1,8 +1,16 @@
 import React from "react";
 import Sidebar from "../components/Sidebar/Sidebar";
 import Topbar from "../components/TopBar/Topbar";
-import { FaChevronDown,FaCalendarAlt } from "react-icons/fa";
-import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from "recharts";
+import { FaChevronDown, FaCalendarAlt } from "react-icons/fa";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  Tooltip,
+  ResponsiveContainer,
+  CartesianGrid,
+} from "recharts";
 
 const data = [
   { date: "1 Dec", sales: 50 },
@@ -20,44 +28,47 @@ const orders = [
   { id: "2485855848567", date: "10 Dec 2021 18:25" },
   { id: "2485855848564", date: "15 Dec 2021 18:25" },
   { id: "2485855848544", date: "21 Dec 2021 18:25" },
-  { id: "2485855848564", date: "15 Dec 2021 18:25" },
-  { id: "2485855848544", date: "21 Dec 2021 18:25" },
-  
+  { id: "2485855848565", date: "25 Dec 2021 18:25" },
+  { id: "2485855848566", date: "28 Dec 2021 18:25" },
 ];
 
+// Function to handle report download
+const handleDownloadReport = () => {
+  const csvContent =
+    "Order ID,Date & Time\n" +
+    orders.map((order) => `${order.id},${order.date}`).join("\n");
 
+  const blob = new Blob([csvContent], { type: "text/csv" });
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = "Sales_Report.csv";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
 
 function Report() {
   return (
-    <div className="flex h-screen bg-gray-100">
+    <div className="flex h-screen bg-gray-100 overflow-hidden">
       <Sidebar />
-      <div className="flex-1 flex flex-col">
+      <div className="flex-1 flex flex-col h-screen">
         <Topbar />
-        <div className="p-6">
 
-
-
-
-          <div className="flex items-center justify-between p-4"> 
+        <div className="p-6 flex-1 overflow-auto">
+          <div className="flex items-center justify-between p-4">
             <div>
-                <h2 className="text-3xl font-bold text-[#979696]">Sales Report</h2>
-                <h3>Sales related report of the pharmacy.</h3>
+              <h2 className="text-3xl font-bold text-[#979696]">Sales Report</h2>
+              <h3>Sales related report of the pharmacy.</h3>
             </div>
 
-              <button className="border border-gray-400 px-4 py-2 rounded-md  shadow-md w-50 h-12 flex items-center gap-6 cursor-pointer">
-                Download Report
-                <FaChevronDown  size={14}/>
-              </button>
-
+            <button
+              onClick={handleDownloadReport}
+              className="border border-gray-400 px-4 py-2 rounded-md shadow-md flex items-center gap-2 cursor-pointer"
+            >
+              Download Report
+              <FaChevronDown size={14} />
+            </button>
           </div>
-
-
-
-
-
-
-
-
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4 mb-5">
             <div>
@@ -72,83 +83,60 @@ function Report() {
               </div>
             </div>
 
-
-
             <div>
-              <p className=" font-medium mb-1">Medicine Group</p>
+              <p className="font-medium mb-1">Medicine Group</p>
               <select className="border border-gray-400 p-2 rounded-md w-full">
                 <option>- Select Group -</option>
               </select>
             </div>
 
-
             <div>
-              <p className=" font-medium mb-1">User Name</p>
+              <p className="font-medium mb-1">User Name</p>
               <select className="border border-gray-400 p-2 rounded-md w-full">
                 <option>- Select User Name -</option>
               </select>
             </div>
           </div>
 
+          <div className="flex flex-col md:flex-row justify-between items-start p-4 gap-6">
+            <div className="bg-white shadow-md rounded-md p-4 border border-gray-400 w-full md:w-2/3">
+              <h3 className="font-light text-lg">Sales Made</h3>
+              <ResponsiveContainer width="100%" height={400}>
+                <LineChart data={data}>
+                  <XAxis dataKey="date" />
+                  <YAxis />
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <Tooltip />
+                  <Line
+                    type="monotone"
+                    dataKey="sales"
+                    stroke="#6b46c1"
+                    strokeWidth={2}
+                    fillOpacity={0.3}
+                  />
+                </LineChart>
+              </ResponsiveContainer>
+            </div>
 
-
-
-
-
-
-      <div className="flex justify-between items-center p-4 gap-6">
-
-
-
-
-          <div className="bg-white shadow-md rounded-md p-4 border border-gray-400 w-full h-120 ">
-            <h3 className="font-light text-lg">Sales Made</h3>
-            <ResponsiveContainer width="100%" height={400}>
-              <LineChart data={data}>
-                <XAxis dataKey="date" />
-                <YAxis />
-                <CartesianGrid strokeDasharray="3 3" />
-                <Tooltip />
-                <Line type="monotone" dataKey="sales" stroke="#6b46c1" strokeWidth={2} fillOpacity={0.3} />
-              </LineChart>
-            </ResponsiveContainer>
-          </div>
-
-
-
-
-
-
-
-
-
-          <div className="bg-white shadow-md rounded-md p-4 border border-gray-400 w-200 h-120 overflow-x-auto">
-            <table className="w-full border-collapse">
-              <thead>
-                <tr className="border-b border-gray-400">
-                  <th className="text-left p-2">Order ID</th>
-                  <th className="text-left p-2">Date & Time</th>
-                </tr>
-              </thead>
-              <tbody>
-                {orders.map((order) => (
-                  <tr key={order.id} >
-                    <td className="p-2">{order.id}</td>
-                    <td className="p-2">{order.date}</td>
+            <div className="bg-white shadow-md rounded-md p-4 border border-gray-400 w-full md:w-1/3 overflow-auto max-h-[400px]">
+              <table className="w-full border-collapse">
+                <thead>
+                  <tr className="border-b border-gray-400">
+                    <th className="text-left p-2">Order ID</th>
+                    <th className="text-left p-2">Date & Time</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {orders.map((order) => (
+                    <tr key={order.id} className="border-b border-gray-300">
+                      <td className="p-2">{order.id}</td>
+                      <td className="p-2">{order.date}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
-
-      </div>
-
-
-
-
-
-
-
         </div>     
       </div>
     </div>
