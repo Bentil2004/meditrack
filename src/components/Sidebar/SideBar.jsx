@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import {
   FaBars,
@@ -13,7 +13,16 @@ import logo from "../../assets/newLogo.png";
 
 const Sidebar = () => {
   const location = useLocation();
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsCollapsed(window.innerWidth < 868);
+    };
+    window.addEventListener("resize", handleResize);
+    
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const menuItems = [
     { name: "Dashboard", path: "/Dashboard", icon: <FaHome size={20} /> },
@@ -25,21 +34,21 @@ const Sidebar = () => {
 
   return (
     <div
-      className={`h-screen bg-white shadow-md flex flex-col p-4 transition-all duration-100 ${
+      className={`h-screen bg-white shadow-md flex flex-col p-4 transition-all duration-200 ${
         isCollapsed ? "w-20" : "w-64"
       }`}
     >
       <div className="flex items-center justify-between">
-        {!isCollapsed && <img src={logo} alt="MediTrack Logo" className="h-10" />}
+        {!isCollapsed && <img src={logo} alt="MediTrack Logo" className="h-7" />}
         <button
-          className="p-2 rounded-lg hover:bg-gray-200 transition ml-1.5 cursor-pointer"
+          className="p-3 rounded-lg hover:bg-gray-200 transition ml-1.5 cursor-pointer"
           onClick={() => setIsCollapsed(!isCollapsed)}
         >
-          <FaBars size={20} />
+          <FaBars size={18} />
         </button>
       </div>
 
-      <ul className="flex-1 mt-6 space-y-2">
+      <ul className="flex-1 mt-1 space-y-2">
         {menuItems.map((item) => (
           <li key={item.path} className="relative group">
             <Link
