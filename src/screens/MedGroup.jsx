@@ -54,33 +54,38 @@ const MedGroup = () => {
         </div>
 
         <div className="bg-white shadow-md rounded-lg overflow-hidden border border-gray-400">
-          <table className="w-full">
-            <thead>
-              <tr className="bg-gray-200">
-                <th className="text-left px-6 py-3">Group Name ⬍</th>
-                <th className="text-left px-6 py-3">No of Medicines ⬍</th>
-                <th className="text-left px-6 py-3">Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {filteredGroups.map((group, index) => (
-                <tr key={index} className="border-t border-gray-400">
-                  <td className="px-6 py-4">{group.name}</td>
-                  <td className="px-6 py-4">{group.count.toString().padStart(2, '0')}</td>
-                  <td className="px-6 py-4">
-                    <button 
-                      onClick={() => navigate(`/MedGroupDetails/${group.name}`)}
-                      className="text-gray-500 hover:text-gray-400 cursor-pointer flex items-center ml-3"
-                    >
-                      <div className="mr-1">View Full Detail</div>
-                      <FaChevronRight size={12}/>
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+  <table className="w-full">
+    <thead>
+      <tr className="bg-gray-200">
+        <th className="text-left px-6 py-3">Group Name ⬍</th>
+        <th className="text-left px-6 py-3">No of Medicines ⬍</th>
+        <th className="text-left px-6 py-3">Action</th>
+      </tr>
+    </thead>
+  </table>
+  <div className="h-120 overflow-y-auto block">
+    <table className="w-full">
+      <tbody>
+        {filteredGroups.map((group, index) => (
+          <tr key={index} className="border-t border-gray-400">
+            <td className="px-6 py-4">{group.name}</td>
+            <td className="px-6 py-4">{group.count.toString().padStart(2, '0')}</td>
+            <td className="px-6 py-4">
+              <button 
+                onClick={() => navigate(`/MedGroupDetails/${group.name}`)}
+                className="text-gray-500 hover:text-gray-400 cursor-pointer flex items-center ml-3"
+              >
+                <div className="mr-1">View Full Detail</div>
+                <FaChevronRight size={12}/>
+              </button>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</div>
+
 
       </div>
     </div>

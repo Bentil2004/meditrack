@@ -9,6 +9,7 @@ function Staffs() {
     { id: 2, name: "Gino Kofi Freeman", email: "gino69@gmail.com", image: logo },
     { id: 3, name: "Richmond Osei", email: "richmondosei@gmail.com", image: logo },
     { id: 4, name: "Joana Bentil", email: "joanaben@gmail.com", image: logo },
+    { id: 5, name: "Nwakanma Brian", email: "nwaksbrian@gmail.com", image: logo },
   ]);
 
   const [searchTerm, setSearchTerm] = useState("");

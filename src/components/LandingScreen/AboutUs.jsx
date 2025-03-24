@@ -52,7 +52,7 @@ function AboutUs() {
 
       <div className="grid md:grid-cols-2 gap-8 mt-16">
 
-        <div className="bg-[#B69CED] text-white p-12 flex shadow-md min-h-[300px]">
+        <div className="bg-[#7E48F0] text-white p-12 flex shadow-md min-h-[300px]">
           <h3 className="text-4xl font-bold ">
             We all know <br />that efficiency <br />is key... <br />
             Streamline <br /> your hospital<br /> inventory and <br /> save valuable <br /> time and<br />
