@@ -1,4 +1,4 @@
-import React from "react";
+import React,{ useState } from "react";
 import Sidebar from "../components/Sidebar/Sidebar";
 import Topbar from "../components/TopBar/Topbar";
 import { FaChevronDown, FaCalendarAlt } from "react-icons/fa";
@@ -11,6 +11,12 @@ import {
   ResponsiveContainer,
   CartesianGrid,
 } from "recharts";
+
+import { DateRange } from "react-date-range";
+import "react-date-range/dist/styles.css";
+import "react-date-range/dist/theme/default.css";
+import format from "date-fns/format";
+
 
 const data = [
   { date: "1 Dec", sales: 50 },
@@ -48,6 +54,16 @@ const handleDownloadReport = () => {
 };
 
 function Report() {
+    // Date Range State
+  const [range, setRange] = useState([
+      {
+        startDate: new Date(),
+        endDate: new Date(),
+        key: "selection",
+      },
+    ]);
+  const [showCalendar, setShowCalendar] = useState(false);
+
   return (
     <div className="flex h-screen bg-gray-100 overflow-hidden">
       <Sidebar />
@@ -76,11 +92,24 @@ function Report() {
               <div className="relative">
                 <input
                   type="text"
-                  className="border border-gray-400 p-2 rounded-md w-full pr-10"
-                  placeholder="01 December 2021 - 31 December 2021"
+                  className="border border-gray-400 p-2 rounded-md w-full pr-10 "
+                  value={`${format(range[0].startDate, "dd MMM yyyy")} - ${format(range[0].endDate, "dd MMM yyyy")}`}
+                  readOnly
+                  onClick={() => setShowCalendar(!showCalendar)}
                 />
-                <FaCalendarAlt className="absolute right-3 top-3 text-black" />
+                <FaCalendarAlt className="absolute right-3 top-3 text-black " 
+                onClick={() => setShowCalendar(!showCalendar)} />
               </div>
+              {showCalendar && (
+                <div className="absolute z-10 bg-white shadow-lg p-2 rounded-md mt-2 ">
+                  <DateRange
+                    editableDateInputs={true}
+                    onChange={(item) => setRange([item.selection])}
+                    moveRangeOnFirstSelection={false}
+                    ranges={range}
+                  />
+                </div>
+              )}
             </div>
 
             <div>
