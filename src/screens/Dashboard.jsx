@@ -49,11 +49,11 @@ const Dashboard = () => {
               </div>
               <div className="mt-4 flex justify-between">
                 <div>
-                  <p className="text-2xl sm:text-3xl">50,000</p>
+                  <p className="text-2xl sm:text-3xl">9</p>
                   <p className="text-sm text-gray-500">Total no of Medicines</p>
                 </div>
                 <div className="text-right">
-                  <p className="text-2xl sm:text-3xl">17</p>
+                  <p className="text-2xl sm:text-3xl">10</p>
                   <p className="text-sm text-gray-500">Medicine Groups</p>
                 </div>
               </div>
@@ -74,11 +74,11 @@ const Dashboard = () => {
               </div>
               <div className="mt-4 flex justify-between">
                 <div>
-                  <p className="text-2xl sm:text-3xl">83,060</p>
+                  <p className="text-2xl sm:text-3xl">0</p>
                   <p className="text-sm text-gray-500">Qty of Medicines Sold</p>
                 </div>
                 <div className="text-right">
-                  <p className="text-2xl sm:text-3xl">5,008</p>
+                  <p className="text-2xl sm:text-3xl">0</p>
                   <p className="text-sm text-gray-500">Invoices Generated</p>
                 </div>
               </div>
@@ -93,11 +93,11 @@ const Dashboard = () => {
               </div>
               <div className="mt-4 flex justify-between">
                 <div>
-                  <p className="text-2xl sm:text-3xl">24</p>
+                  <p className="text-2xl sm:text-3xl">1</p>
                   <p className="text-sm text-gray-500">Total no. of Suppliers</p>
                 </div>
                 <div className="text-right">
-                  <p className="text-2xl sm:text-3xl">04</p>
+                  <p className="text-2xl sm:text-3xl">05</p>
                   <p className="text-sm text-gray-500">Total Users</p>
                 </div>
               </div>
@@ -112,7 +112,7 @@ const Dashboard = () => {
               </div>
               <div className="mt-4 flex justify-between">
                 <div>
-                  <p className="text-2xl sm:text-3xl">860</p>
+                  <p className="text-2xl sm:text-3xl">8</p>
                   <p className="text-sm text-gray-500">Total no. of Customers</p>
                 </div>
                 <div className="text-right">

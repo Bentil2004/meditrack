@@ -36,6 +36,12 @@ function SignUp() {
     validNumber &&
     validSymbol;
 
+
+
+
+
+
+    
   const handleSignUp = async (e) => {
     e.preventDefault();
     setError(null);
@@ -63,6 +69,15 @@ function SignUp() {
     }
   };
 
+
+
+
+
+
+
+
+
+  
   return (
     <div className="h-screen flex flex-col md:flex-row">
       <div className="w-full md:w-1/2 flex flex-col justify-center px-6 sm:px-12 md:px-20 bg-gray-100">
@@ -174,4 +189,3 @@ function SignUp() {
 }
 
 export default SignUp;
-
