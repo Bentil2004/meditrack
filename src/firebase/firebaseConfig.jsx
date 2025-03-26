@@ -7,7 +7,7 @@ const firebaseConfig = {
   apiKey: "AIzaSyC14HfRd7lHWvG4iBRTTghzJQrJtPEYKW4",
   authDomain: "meditrack-8f9cd.firebaseapp.com",
   projectId: "meditrack-8f9cd",
-  storageBucket: "meditrack-8f9cd.firebasestorage.app",
+  storageBucket: "meditrack-8f9cd.appspot.com",
   messagingSenderId: "554175158595",
   appId: "1:554175158595:web:f9551d0d3e5b7e7d9bf7f6",
   measurementId: "G-EG0FB3ERHE"
